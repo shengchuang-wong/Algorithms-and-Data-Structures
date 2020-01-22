@@ -31,7 +31,7 @@
             return 1
   ```
   
-  ## Searching
+## Searching
   - Linear search: simply loop through the array and check one by one
     ```js
     function searchString(arr, val) {
