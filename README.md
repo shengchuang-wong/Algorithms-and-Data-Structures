@@ -1,10 +1,21 @@
 # Algorithms and Data Structures
 
 ## Topic Covered
+Algorithm
 - [Complexity](#complexity)
 - [Solving Pattern](#solving-pattern)
 - [Searching Algorithms](#searching-algorithms)
 - [Sorting Algorithms](#sorting-algorithms)
+
+Data Structures
+- [Linked Lists](#linked-lists)
+- [Stacks & Queues](#stacks--queues)
+- [Trees](#trees)
+- [Binary Heaps](#binary-heaps-category-of-trees)
+- [Hash Tables](#hash-tables-hash-map)
+- [Graphs](#graphs)
+- [Dijkstra's Algorithm](#dijkstras-algorithm-shortest-path-algorithm)
+
 
 ## Algorithm
 
