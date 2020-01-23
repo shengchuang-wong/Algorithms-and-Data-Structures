@@ -1,5 +1,11 @@
 # Algorithms and Data Structures
 
+## Topic Covered
+- [Complexity](#complexity)
+- [Solving Pattern](#solving-pattern)
+- [Searching Algorithms](#searching-algorithms)
+- [Sorting Algorithms](#sorting-algorithms)
+
 ## Complexity
 - Time complexity
 - Space complexity  
@@ -35,7 +41,7 @@
             return 1
   ```
   
-## Searching
+## Searching Algorithms
   - Linear search: simply loop through the array and check one by one
     - Best case: O(1)
     - Average case: 0(n)
@@ -83,7 +89,7 @@
     ```
   - KMP string search algorithm
 
-## Sorting
+## Sorting Algorithms
 - Bubble sort
   - Time complexity: O(n2)
   - Pseudocode:
