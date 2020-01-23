@@ -8,7 +8,16 @@
 
 ## Complexity
 - Time complexity
-- Space complexity  
+- Space complexity 
+```
+- O(1)
+- O(log n)
+- O(n)
+- O(n log n)
+- O(N ^ 2)
+- O(2 ^ n)
+- O(n!)
+```
 
 ## Solving Pattern
 - Frequency counter
@@ -181,5 +190,43 @@
   ```
 
 - Merge sort
+  - Time complexity: O(n log n)
+  - Pseudocode(Merge Sort):
+    - Break the array into halves until you have arrays that are empty or have one element
+    - Once you have smaller sorted arrays, merge those arrays with other sorted arrays until you are back at the full length of the array
+    - Once the array has been merged back together, return the merge (and sorted) array
+  - Pseudocode(Merge Array):
+    - Create  an empty array, take a look at the smallest values in each input array
+    - While there are still values we haven't looked at...
+      - If the value in the first array is smaller than the value in second array, push the value into our results and move on to the next value in the first array
+      - If the value in the first array is larger than the value in second array, push the value in the second array into our results and move on to the next value in the second array
+  ```js
+    function mergeSort(arr) {
+    if (arr.length === 1) {
+      return arr;
+    }
+  
+    const center = Math.floor(arr.length / 2);
+    const left = arr.slice(0, center);
+    const right = arr.slice(center);
+  
+    return merge(mergeSort(left), mergeSort(right));
+  }
+  
+  function merge(left, right) {
+    const results = [];
+  
+    while (left.length && right.length) {
+      if (left[0] < right[0]) {
+        results.push(left.shift());
+      } else {
+        results.push(right.shift());
+      }
+    }
+  
+    return [...results, ...left, ...right];
+  }
+  ```js
+
 - Quick sort
 - Radix sort
