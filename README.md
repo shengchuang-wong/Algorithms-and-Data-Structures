@@ -6,7 +6,9 @@
 - [Searching Algorithms](#searching-algorithms)
 - [Sorting Algorithms](#sorting-algorithms)
 
-## Complexity
+## Algorithm
+
+### Complexity
 - Time complexity
 - Space complexity 
 ```
@@ -19,7 +21,7 @@
 - O(n!)
 ```
 
-## Solving Pattern
+### Solving Pattern
 - Frequency counter
 - Two pointers
 - Sliding window
@@ -50,7 +52,7 @@
             return 1
   ```
   
-## Searching Algorithms
+### Searching Algorithms
   - Linear search: simply loop through the array and check one by one
     - Best case: O(1)
     - Average case: 0(n)
@@ -98,7 +100,7 @@
     ```
   - KMP string search algorithm
 
-## Sorting Algorithms
+### Sorting Algorithms
 - Bubble sort
   - Time complexity: O(n2)
   - Pseudocode:
@@ -128,6 +130,7 @@
   
 - Selection sort
   - Time complexity: O(n2)
+  - Space complexity: O(1)
   - Pseudocode:
     - Store the first element as the smallest value you've seen so far
     - Compare this item to the next item in the array until you find a smaller number
@@ -157,6 +160,7 @@
 
 - Insertion sort
   - Time complexity: O(2), but faster then array is nearly sorted
+  - Space complexity: O(1)
   - Pseudocode:
     - Start by picking the second element in the array
     - Now compare the second element with the one before it and swap if necessary
@@ -191,6 +195,7 @@
 
 - Merge sort
   - Time complexity: O(n log n)
+  - Space complexity: O(n)
   - Pseudocode(Merge Sort):
     - Break the array into halves until you have arrays that are empty or have one element
     - Once you have smaller sorted arrays, merge those arrays with other sorted arrays until you are back at the full length of the array
@@ -229,4 +234,88 @@
   ```js
 
 - Quick sort
-- Radix sort
+  - Time Complexity: Average case O(n log n), Worst case O(n ^ 2)
+  - Space Complexity: O(n log n)
+  - Pseudocode(Pivot):
+    - It will help to accept three arguments: an array, a start index, and an end index (these can default to 0 and the array length minus 1, respectively)
+    - Grab the pivot from the start of the array
+    - Store the current pivot index in a variable(this will keep track of where the pivot will end up)
+    - Loop through the array from the start until the end
+      - If the pivot is greater than the current value, increment the pivot index variable and then swap the current element with the element at the pivot index
+    - Swap the starting element(i.e. the pivot) with the pivot index
+    - Return the pivot index
+  - Pseudocode(Quicksort):
+    - Call the pivot helpers on the array
+    - When the helper returns to you the updated pivot index, recursively call the pivot helper on the subarray to the left of that index, and the subarray to the right of that index
+    - Your base case occurs when you consider a subarray with less than 2 elements
+  ```js
+  function quickSort(arr, left = 0, right = arr.length - 1) {
+    if(left < right) {
+        let pivotIndex = pivot(arr, left, right);
+
+        // left
+        quickSort(arr, left, pivotIndex - 1);
+    
+        // right
+        quickSort(arr, pivotIndex + 1, right);
+    }
+    return arr;
+  }
+
+  function pivot(arr, start = 0, end = arr.length - 1) {
+    let pivot = arr[start];
+    let swapIdx = start;
+
+    for (let i = start + 1; i < arr.length; i++) {
+        if (pivot > arr[i]) {
+            swapIdx++;
+            [arr[swapIdx], arr[i]] = [arr[i], arr[swapIdx]];
+        }
+    }
+
+    [arr[swapIdx], arr[start]] = [arr[start], arr[swapIdx]];
+    return swapIdx;
+  }
+  ```
+  
+- Radix sort (special sorting algorithm that works on lists of numbers)
+  - Time complexity: O(nk) n = length of array, k =  number of digits(average)
+  - Space complexity: O(n + k)
+  - Pseudocode:
+    - Define a function that accepts lists of numbers
+    - Figure out how many digits the largest numbers has
+    - Loop from `k = 0` up to this largest number of digits
+    - For each iteration of the loop:
+      - Create buckets for each digit (0 to 9)
+      - Place each number in the corresponding bucket based on its kth digit
+    - Replace our existing array with values in our buckets, starting with 0 and going up to 9
+    - Return list at the end!
+
+## Data Structures
+
+### Linked Lists
+- A data structures that contains a **head**, **tail** and **length** property
+- Linked Lists consist of nodes, each **node** has a **value** and a **pointer** to another node or null
+- Singly Linked Lists (Unidirectional)
+- Doubly Linked Lists (Bidirectional)
+
+### Stacks & Queues
+- Stacks
+  - Last in first out (LIFO)
+  - Contain `push()` and `pop()`
+  - Big O Notation
+    - Insertion - O(1)
+    - Removal - O(1)
+    - Searching - O(n)
+    - Access - O(n)
+- Queue
+  - First in first out (FIFO)
+  - Work with `push() & shift()` or `unshift() & pop()`
+  - Big O Notation
+    - Insertion - O(1)
+    - Removal - O(1)
+    - Searching - O(n)
+    - Access - O(n)
+
+### Trees
+  
