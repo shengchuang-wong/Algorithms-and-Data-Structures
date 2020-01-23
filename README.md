@@ -392,3 +392,64 @@
   2. Linear Probing
   
 ### Graphs
+- Graph Terms
+  - Vertex - a node
+  - Edge - connection between nodes
+  - Weighted/Unweighted - values assigned to distances between vertices
+  - Directed/Undirected - directions assigned to distanced between vertices
+- Graph Traversal
+  - Depth First
+    - Explore as far as possible down one branch before "backtracking"
+    - Pseudocode(Recursive)
+    ```
+    DFS(vertext):
+      if vertex is empty
+        return (this is a base case)
+      add vertex to results list
+      mark vertex as visited
+      for each neighbor in vertex's neighbors:
+        if neighbor is not visited:
+          recursively call DFS on neighbor
+    ```
+    - Pseudocode(Iterative)
+    ```
+    DFS-iterative(start):
+      let S be a stack
+      S.push(start)
+      while S is not empty
+        vertex = S.pop()
+        if vertex is not labeled as discovered:
+          visited vertex (add to result list)
+          label vertex as discovered
+          for each of vertex's neighbors, N do
+            S.push(N)
+    ```
+  - Breadth First
+    - Visit neighbors at currrent depth first
+    - Pseudocode
+    1. This function should accept a starting vertex
+    2. Create a queue (you can use an array) and place the starting vertex in it
+    3. Create an array to store the nodes visited
+    4. Create an object to store nodes visited
+    5. Mark the starting vertex as visited
+    6. Loop as long as there is anything in the queue
+    7. Remove the first vertex from the queue  and push it into the array that stores nodes visited
+    8. Loop over each vertex in adjacency list for the vertex you are visiting
+    9. If it is not inside the object that stores nodes visited, mark it as visited and enqueue that vertex
+    10. Once you have finished looping, return the array of visited nodes
+    
+### Dijkstra's Algorithm (Shortest path algorithm)
+- Pseudocode
+1. This function should accept a starting and ending vertex
+2. Create an object(we'll call it distances) and set each key to be every vertex in the adjacency list with a value of infinity, except for the starting vertex with should have a value of 0
+3. After setting a value in the distances object, add each vertex with a priority of Infinity to the priority queue, except the starting vertex, which should have a priority of 0 because that's where we begin
+4. Create another object called previous aand set each key to be every vertex in the adjacency list with a value of null
+5. Start looping as long as there is anything in the priority queue
+  - dequeue a vertex from the priority queue
+  - If that vertex is the same as the ending vertex - we are done!
+  - Otherwise loop through each value in the adjacency list at that vertex
+    -  Calculate the distance to that vertex from the starting vertex
+    - If the distance is less than what is currently stored in our distances object
+      - update the distances object with new lower distance
+      - update the previous object to contain that vertex
+      - enqueue the vertex with the total distance from the start node
