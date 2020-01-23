@@ -104,10 +104,10 @@
 - Bubble sort
   - Time complexity: O(n2)
   - Pseudocode:
-    - Start looping from with a variable called `i` the end of array towards the beginning
-    - Start inner loop with a variable called `j` from the beginning until `i - 1`
-    - If `arr[j]` is greater than `arr[j+1]`, swap those two values!
-    - Return the sorted array
+    1. Start looping from with a variable called `i` the end of array towards the beginning
+    2. Start inner loop with a variable called `j` from the beginning until `i - 1`
+    3. If `arr[j]` is greater than `arr[j+1]`, swap those two values!
+    4. Return the sorted array
   ```js
   // Bubble sort - compare two and swap, and swap and swap largest in behind
   
@@ -132,11 +132,11 @@
   - Time complexity: O(n2)
   - Space complexity: O(1)
   - Pseudocode:
-    - Store the first element as the smallest value you've seen so far
-    - Compare this item to the next item in the array until you find a smaller number
-    - If a smaller number is found, designate the smaller number to be the new "minimum" and continue until the end of the      array
-    - If the "minimum" is not value(index) you initially began with, swap the two values
-    - Repeat this with the next element until the array is sorted
+    1. Store the first element as the smallest value you've seen so far
+    2. Compare this item to the next item in the array until you find a smaller number
+    3. If a smaller number is found, designate the smaller number to be the new "minimum" and continue until the end of the      array
+    4. If the "minimum" is not value(index) you initially began with, swap the two values
+    5. Repeat this with the next element until the array is sorted
   ```js
   // Selection sort - find lowest and put to front, and find again and put
   
@@ -162,10 +162,10 @@
   - Time complexity: O(2), but faster then array is nearly sorted
   - Space complexity: O(1)
   - Pseudocode:
-    - Start by picking the second element in the array
-    - Now compare the second element with the one before it and swap if necessary
-    - Continue to the next element and if it is in the incorrect order, iterate through the sorted portion (i.e. the left side) to place the element in the correct place
-    - Repeat until the array is sorted
+    1. Start by picking the second element in the array
+    2. Now compare the second element with the one before it and swap if necessary
+    3. Continue to the next element and if it is in the incorrect order, iterate through the sorted portion (i.e. the left side) to place the element in the correct place
+    4. Repeat until the array is sorted
   ```js
   function insertionSort(arr) {
 
@@ -197,12 +197,12 @@
   - Time complexity: O(n log n)
   - Space complexity: O(n)
   - Pseudocode(Merge Sort):
-    - Break the array into halves until you have arrays that are empty or have one element
-    - Once you have smaller sorted arrays, merge those arrays with other sorted arrays until you are back at the full length of the array
-    - Once the array has been merged back together, return the merge (and sorted) array
+    1. Break the array into halves until you have arrays that are empty or have one element
+    2. Once you have smaller sorted arrays, merge those arrays with other sorted arrays until you are back at the full length of the array
+    3. Once the array has been merged back together, return the merge (and sorted) array
   - Pseudocode(Merge Array):
-    - Create  an empty array, take a look at the smallest values in each input array
-    - While there are still values we haven't looked at...
+    1. Create  an empty array, take a look at the smallest values in each input array
+    2. While there are still values we haven't looked at...
       - If the value in the first array is smaller than the value in second array, push the value into our results and move on to the next value in the first array
       - If the value in the first array is larger than the value in second array, push the value in the second array into our results and move on to the next value in the second array
   ```js
@@ -237,17 +237,17 @@
   - Time Complexity: Average case O(n log n), Worst case O(n ^ 2)
   - Space Complexity: O(n log n)
   - Pseudocode(Pivot):
-    - It will help to accept three arguments: an array, a start index, and an end index (these can default to 0 and the array length minus 1, respectively)
-    - Grab the pivot from the start of the array
-    - Store the current pivot index in a variable(this will keep track of where the pivot will end up)
-    - Loop through the array from the start until the end
+    1. It will help to accept three arguments: an array, a start index, and an end index (these can default to 0 and the array length minus 1, respectively)
+    2. Grab the pivot from the start of the array
+    3. Store the current pivot index in a variable(this will keep track of where the pivot will end up)
+    4. Loop through the array from the start until the end
       - If the pivot is greater than the current value, increment the pivot index variable and then swap the current element with the element at the pivot index
-    - Swap the starting element(i.e. the pivot) with the pivot index
-    - Return the pivot index
+    5. Swap the starting element(i.e. the pivot) with the pivot index
+    6. Return the pivot index
   - Pseudocode(Quicksort):
-    - Call the pivot helpers on the array
-    - When the helper returns to you the updated pivot index, recursively call the pivot helper on the subarray to the left of that index, and the subarray to the right of that index
-    - Your base case occurs when you consider a subarray with less than 2 elements
+    1. Call the pivot helpers on the array
+    2. When the helper returns to you the updated pivot index, recursively call the pivot helper on the subarray to the left of that index, and the subarray to the right of that index
+    3. Your base case occurs when you consider a subarray with less than 2 elements
   ```js
   function quickSort(arr, left = 0, right = arr.length - 1) {
     if(left < right) {
@@ -282,14 +282,14 @@
   - Time complexity: O(nk) n = length of array, k =  number of digits(average)
   - Space complexity: O(n + k)
   - Pseudocode:
-    - Define a function that accepts lists of numbers
-    - Figure out how many digits the largest numbers has
-    - Loop from `k = 0` up to this largest number of digits
-    - For each iteration of the loop:
+    1. Define a function that accepts lists of numbers
+    2. Figure out how many digits the largest numbers has
+    3. Loop from `k = 0` up to this largest number of digits
+    4. For each iteration of the loop:
       - Create buckets for each digit (0 to 9)
       - Place each number in the corresponding bucket based on its kth digit
-    - Replace our existing array with values in our buckets, starting with 0 and going up to 9
-    - Return list at the end!
+    5. Replace our existing array with values in our buckets, starting with 0 and going up to 9
+    6. Return list at the end!
 
 ## Data Structures
 
@@ -318,4 +318,77 @@
     - Access - O(n)
 
 ### Trees
+- Tree Terminology
+  - Root - The top node in a tree
+  - Child - A node directly connected to another node when moving away from the Root
+  - Parent - The converse notion of a child
+  - Siblings - A group of nodes with the same parent
+  - Leaf - A node with no children
+  - Edge - The connection between one node and another
+- Kinds of Trees
+  - Trees
+  - Binary Trees
+  - Binary Search Trees
   
+#### How Binary Search Tree Work
+  - Every parent node has most **two** children
+  - Every node to the left of a parent node is **always less** than the parent
+  - Every node to the right of a parent node is **always greater** than the parent
+- Big O Notation of Binary Search Tree
+  - Insertion - O(log n)
+  - Searching - O(log n)
+  
+#### Tree Traversal
+- Breadth-first Search
+  - Steps:
+    1. Create a queue (this can be an array) and a variable to store the values of nodes visited
+    2. Place the root node in the queue
+    3. Loop as long as there is anything in the queue
+      - Dequeue a node from the queue and push the value of the node into the variable that stores the nodes
+      - If there is a left property on the node dequeued - add it to the queue
+      - If there is a right property on the node dequeued - add it to the queue
+    4. Return the variable that stores the values
+- Depth-first Search (InOrder, PreOrder, PostOrder)
+  - PreOrder Steps:
+    1. Create a variable to store the values of nodes visited
+    2. Store the root of the BST in a variable called current
+    3. Write a helper function which accepts a node
+      - Push the value of the node to the variables that stores the values
+      - If the node has a left property, call the helper function with the left property on the node
+      - If the node has a right property, call the helper function with the right property on the node
+    4. Invoke the helper function with the current variable
+    5. Return the array of values
+  - PostOrder Steps:
+    1. Create a variable to store the values of nodes visited
+    2. Store the root of the BST in a variable called current
+    3. Write a helper function which accepts a node
+      - If the node has a left property, call the helper function with the left property on the node
+      - If the node has a right property, call the helper function with the right property on the node
+      - Push the value of the node to the variables that stores the values
+    4. Invoke the helper function with the current variable
+    5. Return the array of values
+  - InOrder Steps:
+    1. Create a variable to store the values of nodes visited
+    2. Store the root of the BST in a variable called current
+    3. Write a helper function which accepts a node
+      - If the node has a left property, call the helper function with the left property on the node
+      - Push the value of the node to the variables that stores the values
+      - If the node has a right property, call the helper function with the right property on the node
+    4. Invoke the helper function with the current variable
+    5. Return the array of values
+    
+ ### Binary Heaps (Category of Trees)
+- Max Binary Heap
+  - Each parent has at most two child nodes
+  - The value of each parent node is **always** greater than its child nodes
+  - In a max Binary Heap the parent is greater than the children, but there are no guarantees between sibling nodes
+  - A binary heap is as compact as possible. All the children of each node are as full as they can be and left children are filled out first
+- Min Binary Heap
+  - Same idea as Max Binary Heap, except parent node is **always** smaller than its child 
+  
+### Hash Tables (Hash Map)
+- Dealing with collisions in hash table:
+  1. Separate Chaining
+  2. Linear Probing
+  
+### Graphs
